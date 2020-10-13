@@ -266,7 +266,8 @@ class InterRDF(AnalysisBase):
         pairs, dist = distances.capped_distance(self.g1.positions,
                                                 self.g2.positions,
                                                 self._maxrange,
-                                                box=self.u.dimensions)
+                                                box=self.u.dimensions,
+                                                method='pkdtree')
         # Maybe exclude same molecule distances
         if self._exclusion_block is not None:
             idxA, idxB = pairs[:, 0]//self._exclusion_block[0], pairs[:, 1]//self._exclusion_block[1]
