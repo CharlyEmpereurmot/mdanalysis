@@ -324,7 +324,8 @@ class InterRDF_s(AnalysisBase):
             pairs, dist = distances.capped_distance(ag1.positions,
                                                     ag2.positions,
                                                     self._maxrange,
-                                                    box=self.u.dimensions)
+                                                    box=self.u.dimensions,
+                                                    method='pkdtree')
 
             for j, (idx1, idx2) in enumerate(pairs):
                 self.count[i][idx1, idx2, :] += np.histogram(dist[j], 
